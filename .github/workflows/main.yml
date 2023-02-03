@@ -40,6 +40,13 @@ jobs:
         run: echo $file_path
       - name: Print all file path details
         run: echo $pay_load, $vmsvitalspayload, $vmsvitalsfilename
+      - name: Create project folders
+        run: |
+          sudo mkdir "$GITHUB_WORKSPACE/generate-bosh-vms-vitals/${{ env.USER_ENV }}"
+          sudo touch "$pay_load"
+          sudo chown -R $RUNNER_NAME:$RUNNER_NAME $GITHUB_WORKSPACE/generate-bosh-vms-vitals/
+          
+        
           
         
       

@@ -21,11 +21,11 @@ jobs:
         run: echo $TODAY_DATE, $ENVIRONMENT, $USER_ENV_NAME
       - name: set file path
         run: |
-           file_path=$("${USER_ENV_NAME}" + "-bosh-vms-vitals-" + "${TODAY_DATE}")
+           file_path=$($USER_ENV_NAME + "-bosh-vms-vitals-" + $TODAY_DATE)
            echo "file_path=$file_path" >> $GITHUB_ENV
         env:
-          TODAY_DATE: "#{TODAY_DATE}"
-          USER_ENV_NAME: "#{USER_ENV_NAME}"
+          TODAY_DATE: $TODAY_DATE
+          USER_ENV_NAME: $USER_ENV_NAME
       - name: Print file path
         run: echo $file_path
       - name: Set File names

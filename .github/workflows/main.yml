@@ -44,7 +44,7 @@ jobs:
         run: |
           sudo mkdir -p  "$GITHUB_WORKSPACE/generate-bosh-vms-vitals/${{ env.USER_ENV }}"
           sudo touch "$pay_load"
-          sudo chown -R $RUNNER_NAME:$RUNNER_NAME $GITHUB_WORKSPACE/generate-bosh-vms-vitals/
+          sudo chown -R $GITHUB_ACTOR:$GITHUB_ACTOR $GITHUB_WORKSPACE/generate-bosh-vms-vitals/
           
         
           

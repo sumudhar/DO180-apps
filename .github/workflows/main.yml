@@ -12,7 +12,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "{{ github.workspace }}"
       - name: Set current date as env variable
-        run: echo "DATE=$(date +'%Y-%m-%dT%H-%M-%S-Z')" >> $GITHUB_ENV
+        run: echo "DATE=$(date -u  +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_ENV
       - name: Echo current date
         run: echo $DATE
       

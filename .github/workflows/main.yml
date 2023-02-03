@@ -17,3 +17,6 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "{{ github.workspace }}"
+      - name: check cf install plugin 
+        run: |
+           cf install-plugin -r CF-Community "Usage Report" -f

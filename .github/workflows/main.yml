@@ -21,22 +21,21 @@ jobs:
         run: echo $TODAY_DATE, $ENVIRONMENT, $USER_ENV_NAME
       - name: set file path
         run: |
-           file_path="np-west-bosh-vms-vitals-$(TODAY_DATE)"
+           file_path="np-west-bosh-vms-vitals-$(date -u  +'%Y-%m-%d-%H-%M-%S')"
            echo $file_path
            echo "file_path=$file_path" >> $GITHUB_ENV
-        env:
-          TODAY_DATE: $TODAY_DATE
-          USER_ENV_NAME: $USER_ENV_NAME
       - name: Print file path
         run: echo $file_path
       - name: Set File names
         run:  |
-          echo "vmsvitalsfilename=$($"{USER_ENV_NAME}" + "-bosh-vms-vitals-" + "${TODAY_DATE}" + ".txt") >> $GITHUB_ENV
-          echo "vmsvitalspayload=$($"{USER_ENV_NAME}" + "-bosh-vms-vitals-" + "${TODAY_DATE}" + ".json") >> $GITHUB_ENV
-          echo "PAYLOAD_FILE_PATH=$("${github.workspace}/generate-bosh-vms-vitals/${USER_ENV_NAME}/$vmsvitalspayload") >> $GITHUB_ENV
+          echo "File path is:: $(file_path)"
+          #echo "vmsvitalsfilename=$($"{USER_ENV_NAME}" + "-bosh-vms-vitals-" + "${TODAY_DATE}" + ".txt") >> $GITHUB_ENV
+          #echo "vmsvitalspayload=$($"{USER_ENV_NAME}" + "-bosh-vms-vitals-" + "${TODAY_DATE}" + ".json") >> $GITHUB_ENV
+          #echo "PAYLOAD_FILE_PATH=$("${github.workspace}/generate-bosh-vms-vitals/${USER_ENV_NAME}/$vmsvitalspayload") >> $GITHUB_ENV
         env:
-          TODAY_DATE: "#{TODAY_DATE}"
-          USER_ENV_NAME: "#{USER_ENV_NAME}"
+          file_path: $file_path
+          
+        
       - name: Echo vmsvitalsfilename
         run: echo $PAYLOAD_FILE_PATH, $vmsvitalspayload, $vmsvitalsfilename
         

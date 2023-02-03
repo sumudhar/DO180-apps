@@ -42,7 +42,7 @@ jobs:
         run: echo $pay_load, $vmsvitalspayload, $vmsvitalsfilename
       - name: Create project folders
         run: |
-          sudo mkdir "$GITHUB_WORKSPACE/generate-bosh-vms-vitals/${{ env.USER_ENV }}"
+          sudo mkdir -p  "$GITHUB_WORKSPACE/generate-bosh-vms-vitals/${{ env.USER_ENV }}"
           sudo touch "$pay_load"
           sudo chown -R $RUNNER_NAME:$RUNNER_NAME $GITHUB_WORKSPACE/generate-bosh-vms-vitals/
           

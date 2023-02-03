@@ -21,7 +21,7 @@ jobs:
         run: echo $TODAY_DATE, $ENVIRONMENT, $USER_ENV_NAME
       - name: set file path
         run: |
-           file_path="np-west-bosh-vms-vitals-"+"${TODAY_DATE}"
+           file_path="np-west-bosh-vms-vitals-"+$(date -u  +'%Y-%m-%d-%H-%M-%S')
            echo $file_path
            echo "file_path=$file_path" >> $GITHUB_ENV
         env:

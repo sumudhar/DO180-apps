@@ -1,6 +1,11 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
+env:
+  TODAY: $(date -u  +'%Y-%m-%d-%H-%M-%S')
+  USER_ENV: np-west
+  ENV_NAME: npwest
+  
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -23,17 +28,16 @@ jobs:
         run: |
            file_path="np-west-bosh-vms-vitals-$(date -u  +'%Y-%m-%d-%H-%M-%S')"
            echo $file_path
+           echo $TODAY
            echo "vmsvitalsfilename=$file_path.txt" >> $GITHUB_ENV
            echo "vmsvitalspayload=$file_path.json" >> $GITHUB_ENV
-           pay_load="{{ github.workspace }}/generate-bosh-vms-vitals/{{ env.USER_ENV_NAME }}/$vmsvitalspayload"
+           pay_load="${{ github.workspace }}/generate-bosh-vms-vitals/${{ USER_ENV }}/$vmsvitalspayload"
            echo $pay_load
            echo "pay_load=$pay_load" >> $GITHUB_ENV
       - name: Print file path
         run: echo $file_path
       - name: Echo vmsvitalsfilename
         run: echo $PAYLOAD_FILE_PATH, $vmsvitalspayload, $vmsvitalsfilename
-        
-          
           
         
       

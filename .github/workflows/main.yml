@@ -3,8 +3,8 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 env:
   TODAY: $(date -u  +'%Y-%m-%d-%H-%M-%S')
-  USER_ENV: np-west
-  ENV_NAME: npwest
+  USER_ENV: 'np-west'
+  ENV_NAME: 'npwest'
   
 jobs:
   Explore-GitHub-Actions:

@@ -31,9 +31,11 @@ jobs:
            echo $TODAY
            echo "vmsvitalsfilename=$file_path.txt" >> $GITHUB_ENV
            echo "vmsvitalspayload=$file_path.json" >> $GITHUB_ENV
-           pay_load="${{ github.workspace }}/generate-bosh-vms-vitals/${{ USER_ENV }}/$vmsvitalspayload"
+           pay_load="${{ github.workspace }}/generate-bosh-vms-vitals/$USER_ENV/$vmsvitalspayload"
            echo $pay_load
-           echo "pay_load=$pay_load" >> $GITHUB_ENV
+           echo "pay_load=$pay_load" >> $GITHUB_ENV'
+      
+      
       - name: Print file path
         run: echo $file_path
       - name: Echo vmsvitalsfilename

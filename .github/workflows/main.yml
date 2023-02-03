@@ -26,13 +26,14 @@ jobs:
         run: echo $TODAY_DATE, $ENVIRONMENT, $USER_ENV_NAME
       - name: set file path
         run: |
-           file_path="np-west-bosh-vms-vitals-$(date -u  +'%Y-%m-%d-%H-%M-%S')"
-           echo $file_path
+           file_base_name="np-west-bosh-vms-vitals-$(date -u  +'%Y-%m-%d-%H-%M-%S')"
+           file_path=${{ env.USER_ENV }}-bosh-vms-vitals-${{ env.TODAY }}
+           echo $file_base_name, $file_path
            echo ${{ env.TODAY }}
            echo ${{ env.USER_ENV }}
-           echo "vmsvitalsfilename=$file_path.txt" >> $GITHUB_ENV
-           echo "vmsvitalspayload=$file_path.json" >> $GITHUB_ENV
-           pay_load="${{ github.workspace }}/generate-bosh-vms-vitals/$USER_ENV/$vmsvitalspayload"
+           echo "vmsvitalsfilename=$file_base_name.txt" >> $GITHUB_ENV
+           echo "vmsvitalspayload=$file_base_name.json" >> $GITHUB_ENV
+           pay_load="${{ github.workspace }}/generate-bosh-vms-vitals/${{ env.USER_ENV }}/$file_base_name.json"
            echo $pay_load
            echo "pay_load=$pay_load" >> $GITHUB_ENV'
       

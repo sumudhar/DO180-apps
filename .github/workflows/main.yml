@@ -28,7 +28,7 @@ jobs:
         run: echo $file_path
       - name: Set File names
         run:  |
-          echo "File path is:: $(file_path)"
+          echo "File path is:: $file_path"
           #echo "vmsvitalsfilename=$($"{USER_ENV_NAME}" + "-bosh-vms-vitals-" + "${TODAY_DATE}" + ".txt") >> $GITHUB_ENV
           #echo "vmsvitalspayload=$($"{USER_ENV_NAME}" + "-bosh-vms-vitals-" + "${TODAY_DATE}" + ".json") >> $GITHUB_ENV
           #echo "PAYLOAD_FILE_PATH=$("${github.workspace}/generate-bosh-vms-vitals/${USER_ENV_NAME}/$vmsvitalspayload") >> $GITHUB_ENV

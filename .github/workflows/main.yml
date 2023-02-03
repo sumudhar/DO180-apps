@@ -23,19 +23,13 @@ jobs:
         run: |
            file_path="np-west-bosh-vms-vitals-$(date -u  +'%Y-%m-%d-%H-%M-%S')"
            echo $file_path
-           echo "file_path=$file_path" >> $GITHUB_ENV
+           echo "vmsvitalsfilename=$file_path.txt" >> $GITHUB_ENV
+           echo "vmsvitalspayload=$file_path.json" >> $GITHUB_ENV
+           pay_load="{{ github.workspace }}/generate-bosh-vms-vitals/{{ env.USER_ENV_NAME }}/$vmsvitalspayload"
+           echo $pay_load
+           echo "pay_load=$pay_load" >> $GITHUB_ENV
       - name: Print file path
         run: echo $file_path
-      - name: Set File names
-        run:  |
-          echo file_path
-          #echo "vmsvitalsfilename=$($"{USER_ENV_NAME}" + "-bosh-vms-vitals-" + "${TODAY_DATE}" + ".txt") >> $GITHUB_ENV
-          #echo "vmsvitalspayload=$($"{USER_ENV_NAME}" + "-bosh-vms-vitals-" + "${TODAY_DATE}" + ".json") >> $GITHUB_ENV
-          #echo "PAYLOAD_FILE_PATH=$("${github.workspace}/generate-bosh-vms-vitals/${USER_ENV_NAME}/$vmsvitalspayload") >> $GITHUB_ENV
-        env:
-          file_path: $file_path
-          
-        
       - name: Echo vmsvitalsfilename
         run: echo $PAYLOAD_FILE_PATH, $vmsvitalspayload, $vmsvitalsfilename
         

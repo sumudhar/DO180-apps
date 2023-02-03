@@ -21,6 +21,9 @@ jobs:
         run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
       - name: Echo current date
         run: echo $NOW # Gives "2022-12-11T01:42:20"
-      - name: check cf install plugin 
-        run: |
-           cf install-plugin -r CF-Community "Usage Report" -f  
+      - name: Update with Datetime of Workflow
+        uses: ZekeriyaAY/workflow-date@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          date_format: '%a  %d %b %Y  %H:%M:%S%Z'
+          timezone: 'UTC'

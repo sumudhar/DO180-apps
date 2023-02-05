@@ -16,3 +16,4 @@ jobs:
           chmod +x ./public/scripts/prepare-env.sh
           ./public/scripts/prepare-env.sh
         shell: bash
+        

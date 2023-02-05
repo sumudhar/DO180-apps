@@ -1,9 +1,17 @@
 #!/bin/bash
 
 echo "Hello World"
+# USER_ENV='np-west'
+# ENV_NAME='npwest'
 TODAY_DATE=$(date -u  +'%Y-%m-%d-%H-%M-%S')
 echo $TODAY_DATE
 echo $USER_ENV,$ENV_NAME
+file_base_name="$USER_ENV-bosh-vms-vitals-$TODAY_DATE"
+vm_vitals_file_name="$file_base_name.txt"
+vm_vital_pay_load="$file_base_name.json"
+echo $file_base_name,$vm_vitals_file_name,$vm_vital_pay_load
+PAYLOAD_FILE_PATH="$GITHUB_WORKSPACE/generate-bosh-vms-vitals/$USER_ENV/$vm_vital_pay_load"
+echo "The PAY load file path is:: $PAYLOAD_FILE_PATH"
 
 # - name: set file path
 #         run: |

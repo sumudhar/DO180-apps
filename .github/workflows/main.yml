@@ -1,3 +1,4 @@
+---
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
@@ -5,7 +6,7 @@ env:
   TODAY: $(date -u  +'%Y-%m-%d-%H-%M-%S')
   USER_ENV: 'np-west'
   ENV_NAME: 'npwest'
-  
+
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -21,7 +22,7 @@ jobs:
       - name: set user environment
         run: echo "USER_ENV_NAME=np-west" >> $GITHUB_ENV
       - name: set user environment
-        run: echo "ENVIRONMENT=npwest" >> $GITHUB_ENV 
+        run: echo "ENVIRONMENT=npwest" >> $GITHUB_ENV
       - name: Echo current date, ENVIRONMENT, USER ENV
         run: echo $TODAY_DATE, $ENVIRONMENT, $USER_ENV_NAME
       - name: set file path
@@ -35,7 +36,7 @@ jobs:
            echo "vmsvitalspayload=$file_base_name.json" >> $GITHUB_ENV
            pay_load="${{ github.workspace }}/generate-bosh-vms-vitals/${{ env.USER_ENV }}/$vmsvitalspayload"
            echo $pay_load
-           echo "pay_load=$pay_load" >> $GITHUB_ENV   
+           echo "pay_load=$pay_load" >> $GITHUB_ENV
       - name: Print file path
         run: echo $file_path
       - name: Print all file path details
@@ -49,7 +50,7 @@ jobs:
           sudo find /mnt/isharesafeway/reports/generate-bosh-vms-vitals/${{ env.USER_ENV }}/ -type d -name '*-*-*-*-*-*' -mtime +30 -print0 | xargs -0 -I {} rm -rf {} \\;
           sudo mkdir -p /mnt/isharesafeway/reports/generate-bosh-vms-vitals/${{ env.USER_ENV }}/${{ env.TODAY }}
           sudo cp ${pay_load} /mnt/isharesafeway/reports/generate-bosh-vms-vitals/${{ env.USER_ENV }}/${{ env.TODAY }}/${vmsvitalspayload}
-        
-          
-        
-      
+
+
+
+

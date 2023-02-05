@@ -1,0 +1,18 @@
+---
+name: Bosh VM Vitals Details
+run-name: ${{ github.actor }} With Shell Script 🚀
+on: [push]
+env:
+  TODAY: $(date -u  +'%Y-%m-%d-%H-%M-%S')
+  USER_ENV: 'np-west'
+  ENV_NAME: 'npwest'
+
+jobs:
+  Github-Actions-with-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run script file
+        run: |
+          chmod +x ./public/scripts/prepare-env.sh
+          ./public/scripts/prepare-env.sh
+        shell: bash

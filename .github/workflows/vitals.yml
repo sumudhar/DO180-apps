@@ -10,10 +10,8 @@ jobs:
   Github-Actions-with-script:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Run script file
         run: |
           chmod +x prepare-env.sh
           .prepare-env.sh
         shell: bash
-

@@ -3,7 +3,6 @@ name: Bosh VM Vitals Details
 run-name: ${{ github.actor }} With Shell Script 🚀
 on: [push]
 env:
-  TODAY: $(date -u  +'%Y-%m-%d-%H-%M-%S')
   USER_ENV: 'np-west'
   ENV_NAME: 'npwest'
 jobs:
@@ -11,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Today date is
-        run: $TODAY
       - name: Get folder structure
         run: ls -la
       - name: Run script file

@@ -1,7 +1,9 @@
 #!/bin/bash
 
 echo "Hello World"
-echo "${{ env.TODAY }}"
+TODAY_DATE=$(date -u  +'%Y-%m-%d-%H-%M-%S')
+echo $TODAY_DATE
+echo $USER_ENV,$ENV_NAME
 
 # - name: set file path
 #         run: |

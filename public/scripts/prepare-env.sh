@@ -19,6 +19,7 @@ sudo touch "$PAYLOAD_FILE_PATH"
 echo "/mnt/isharesafeway/reports/generate-bosh-vms-vitals/$USER_ENV/$TODAY_DATE"
 echo "/mnt/isharesafeway/reports/generate-bosh-vms-vitals/$USER_ENV/$TODAY_DATE/$vm_vital_pay_load"
 #sudo chown -R $GITHUB_ACTOR:$GITHUB_ACTOR $GITHUB_WORKSPACE/generate-bosh-vms-vitals/'
+export $PAYLOAD_FILE_PATH
 sh  ./public/scripts/generate-bosh-vms-vitals.sh
 sudo find "/mnt/isharesafeway/reports/generate-bosh-vms-vitals/$USER_ENV/" -type d -name '*-*-*-*-*-*' -mtime +30 -print0 | xargs -0 -I {} rm -rf {} \\;
 # sudo mkdir -p "/mnt/isharesafeway/reports/generate-bosh-vms-vitals/$USER_ENV/$TODAY_DATE"

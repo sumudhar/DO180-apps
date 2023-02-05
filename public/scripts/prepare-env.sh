@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Hello World"
-echo ${{ env.TODAY }}
+echo "${{ env.TODAY }}"
 
 # - name: set file path
 #         run: |

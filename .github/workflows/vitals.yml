@@ -10,8 +10,9 @@ jobs:
   Github-Actions-with-script:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Get folder structure
         run: ls -la
       - name: Run script file
-        run: ./prepare-env.sh
+        run: sh ./public/scripts/prepare-env.sh
         shell: bash

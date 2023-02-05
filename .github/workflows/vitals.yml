@@ -11,7 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run script file
-        run: |
-          chmod +x prepare-env.sh
-          .prepare-env.sh
+        run: ./.github/public/scripts/prepare-env.sh
         shell: bash

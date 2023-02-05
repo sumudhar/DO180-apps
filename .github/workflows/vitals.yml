@@ -13,5 +13,5 @@ jobs:
       - name: Get folder structure
         run: ls -la
       - name: Run script file
-        run: ./.github/public/scripts/prepare-env.sh
+        run: ./prepare-env.sh
         shell: bash

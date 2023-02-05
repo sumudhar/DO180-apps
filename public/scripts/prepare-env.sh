@@ -3,6 +3,7 @@
 echo "Hello World"
 # USER_ENV='np-west'
 # ENV_NAME='npwest'
+echo "Installing cf usage report"
 cf install-plugin -r CF-Community "Usage Report" -f
 TODAY_DATE=$(date -u  +'%Y-%m-%d-%H-%M-%S')
 echo $TODAY_DATE

@@ -13,5 +13,7 @@ jobs:
       - name: Get folder structure
         run: ls -la
       - name: Run script file
-        run: sh ./public/scripts/prepare-env.sh
+        run: |
+          chmod +x ./public/scripts/prepare-env.sh
+          sh ./public/scripts/prepare-env.sh
         shell: bash

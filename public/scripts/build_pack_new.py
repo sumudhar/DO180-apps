@@ -16,7 +16,8 @@ def init_argparse() -> argparse.ArgumentParser:
 def generate_build_pack(user_env,user_space,workspace):
     # client = CloudFoundryClient.build_from_cf_config()
     print("*"*100)
-    print(workspace)
+
+    print(f"Work space is:: {workspace}")
     print("*"*100)
     utc_datetime = datetime.datetime.utcnow()
     today_date=utc_datetime.strftime("%Y-%m-%d-%H-%M-%S")
